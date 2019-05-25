@@ -61,4 +61,12 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+#inspire {
+  background-image: url("../assets/Fotoram.io.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>

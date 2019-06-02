@@ -63,10 +63,10 @@ export default {
       valueDeterminate: 75,
       menuItems: [
         { title: "Campeonatos", icon: "fa-trophy", route: "Championships" },
-        { title: "Jogos", icon: "fa-futbol", route: "games" },
-        { title: "Loja", icon: "fa-shopping-basket", route: "store" },
-        { title: "Configuração", icon: "fa-cog", route: "config" },
-        { title: "Sair", icon: "fa-sign-out-alt", route: "logout" }
+        { title: "Jogos", icon: "fa-futbol", route: "Games" },
+        { title: "Loja", icon: "fa-shopping-basket", route: "Store" },
+        { title: "Configuração", icon: "fa-cog", route: "Config" },
+        { title: "Sair", icon: "fa-sign-out-alt", route: "Logou" }
       ]
     };
   },

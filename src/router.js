@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Championships from "./views/Championships.vue";
 import BrasileiraoSerieA from "./views/BrasileiraoSerieA.vue";
+import Games from "./views/Games.vue";
 
 Vue.use(Router);
 
@@ -16,6 +17,11 @@ export default new Router({
       path: "/championships/brasileirao-serie-A",
       name: "BrasileiraoSerieA",
       component: BrasileiraoSerieA
+    },
+    {
+      path: "/Games",
+      name: "Games",
+      component: Games
     }
   ]
 });

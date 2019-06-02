@@ -61,4 +61,11 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+#inspire {
+  background-image: url("../assets/thumb.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>

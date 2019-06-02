@@ -1,6 +1,6 @@
 <template>
   <v-card>
-    <v-card-title>Campeonatos</v-card-title>
+    <v-card-title class="title">Campeonatos</v-card-title>
     <v-card-text>
       <v-list two-line>
         <template v-for="item in items">

@@ -15,7 +15,7 @@
       <v-tabs-items v-model="activeTab">
         <v-tab-item key="1">
           <v-flex xs12 sm6>
-            <v-card>
+            <v-card ripple @click="gameClicked()">
               <v-container text-xs-center>
                 <v-layout row wrap align-center>
                   <v-flex xs4>
@@ -24,13 +24,25 @@
                       Gre
                     </p>
                   </v-flex>
-
+                  <v-flex xs1>
+                    X
+                  </v-flex>
                   <v-flex xs4>
-                    <img height="50px" src="../assets/atletico-mg.svg" />
+                    <img height="50px" src="../assets/Juventude.png" />
                     <p class="text-uppercase">
-                      Cam
+                      Juve
                     </p>
                   </v-flex>
+                  <v-flex xs3>
+                    <span class="subheading" style="margin-bottom: 0">Ter</span>
+                    <p
+                      style="color:rgb(97,97,97)"
+                      class="body-1 text--darken-3"
+                    >
+                      Quarta, 22/05
+                    </p>
+                  </v-flex>
+                  <v-flex xs12> </v-flex>
                 </v-layout>
               </v-container>
             </v-card>
@@ -74,6 +86,11 @@ export default {
       activeTab: 0,
       tableSearch: ""
     };
+  },
+  methods: {
+    gameClicked() {
+      this.$router.push({ name: "GameDetailedInfos" });
+    }
   }
 };
 </script>

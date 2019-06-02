@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-content>
-      <login-layout v-if="isLogged"></login-layout>
+      <login-layout v-if="!isLogged"></login-layout>
       <app-layout v-else></app-layout>
     </v-content>
   </v-app>

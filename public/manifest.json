@@ -1,8 +1,8 @@
 {
-  "name": "Gremio App",
-  "short_name": "Gremio",
-  "theme_color": "#2196f3",
-  "background_color": "#2196f3",
+  "name": "Imortal",
+  "short_name": "Imortal",
+  "theme_color": "#0d7cb9",
+  "background_color": "#0d7cb9",
   "display": "standalone",
   "orientation": "portrait",
   "Scope": "/",

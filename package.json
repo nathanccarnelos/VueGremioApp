@@ -1,6 +1,6 @@
 {
-  "name": "vuegremioapp",
-  "version": "0.1.0",
+  "name": "Imortal",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",

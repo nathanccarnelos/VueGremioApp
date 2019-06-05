@@ -1,23 +1,39 @@
 <template>
-  <v-card>
-    <v-card-title>
-      <span class="title">Loja</span>
-      <v-spacer></v-spacer>
-      <v-icon>fa-shopping-cart</v-icon>
-    </v-card-title>
-    <v-card-text>
-      <v-container fluid grid-list-sm text-xs-center>
-        <v-layout row wrap align-center>
-          <v-flex v-for="(item, key) in products" :key="key" xs4>
-            <div v-ripple>
-              <img height="70px" :src="item.img" />
-              <p>{{ item.title }} - R${{ item.value }}</p>
-            </div>
-          </v-flex>
-        </v-layout>
-      </v-container>
-    </v-card-text>
-  </v-card>
+  <div>
+    <v-dialog v-model="dialog" max-width="290">
+      <v-card>
+        <v-card-title class="headline">Desculpe</v-card-title>
+        <v-card-text>
+          Vamos te avisar assim que esse item estiver disponível.
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="error" flat dark @click="dialog = false">
+            fechar
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+    <v-card>
+      <v-card-title>
+        <span class="title">Loja</span>
+        <v-spacer></v-spacer>
+        <v-icon>fa-shopping-cart</v-icon>
+      </v-card-title>
+      <v-card-text>
+        <v-container fluid grid-list-sm text-xs-center>
+          <v-layout row wrap align-center>
+            <v-flex v-for="(item, key) in products" :key="key" xs4>
+              <div v-ripple @click.stop="dialog = true">
+                <img height="70px" :src="item.img" />
+                <p>{{ item.title }} - R${{ item.value }}</p>
+              </div>
+            </v-flex>
+          </v-layout>
+        </v-container>
+      </v-card-text>
+    </v-card>
+  </div>
 </template>
 
 <script>
@@ -25,6 +41,7 @@ export default {
   name: "Store",
   data() {
     return {
+      dialog: false,
       products: [
         {
           img: require("../assets/store/bag1.jpeg"),
@@ -92,4 +109,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+img {
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+</style>

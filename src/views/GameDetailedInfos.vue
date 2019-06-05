@@ -7,8 +7,8 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="error" flat dark @click="dialogOpen = false"
-            >fechar</v-btn
-          >
+            >fechar
+          </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>

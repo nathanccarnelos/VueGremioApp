@@ -1,5 +1,26 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
   <v-app id="inspire">
+    <v-dialog v-model="infoDialog" max-width="290">
+      <v-card>
+        <v-card-title class="headline">
+          Olá torcedor do Imortal!
+        </v-card-title>
+        <v-card-text>
+          <p>
+            O nosso aplicativo está em fase Beta, se quiser conhecer as nossas
+            funcionalidades fique à vontade:
+          </p>
+          <p>login: teste</p>
+          <p>senha: 123</p>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="error" flat dark @click="infoDialog = false"
+            >fechar
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
     <v-content>
       <v-container fluid fill-height>
         <v-layout align-center justify-center>
@@ -54,6 +75,7 @@ export default {
   name: "LoginLayout",
   data() {
     return {
+      infoDialog: false,
       username: "",
       password: "",
       showError: false
@@ -76,6 +98,9 @@ export default {
         .catch(() => null);
       this.$router.push({ name: "Championships" });
     }
+  },
+  mounted() {
+    this.infoDialog = true;
   }
 };
 </script>

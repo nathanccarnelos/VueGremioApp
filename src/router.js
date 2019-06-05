@@ -5,6 +5,7 @@ import BrasileiraoSerieA from "./views/BrasileiraoSerieA.vue";
 import Games from "./views/Games.vue";
 import GameDetailedInfos from "./views/GameDetailedInfos.vue";
 import Store from "./views/Store";
+import Login from "./layouts/LoginLayout.vue";
 
 Vue.use(Router);
 
@@ -29,6 +30,11 @@ export default new Router({
       path: "/Games/DetailedInfos",
       name: "GameDetailedInfos",
       component: GameDetailedInfos
+    },
+    {
+      path: "/Login",
+      name: "Login",
+      component: Login
     },
     {
       path: "/Store",

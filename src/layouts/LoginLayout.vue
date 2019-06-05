@@ -9,6 +9,15 @@
                 <v-toolbar-title>Login</v-toolbar-title>
               </v-toolbar>
               <v-card-text>
+                <v-alert
+                  :value="showError"
+                  color="error"
+                  icon="warning"
+                  transition="scale-transition"
+                  outline
+                >
+                  nome de usuário ou senha incorretos.
+                </v-alert>
                 <v-form>
                   <v-text-field
                     prepend-icon="person"
@@ -28,6 +37,7 @@
                 </v-form>
               </v-card-text>
               <v-card-actions>
+                <span class="caption" style="color: dimgrey">0.1.1</span>
                 <v-spacer></v-spacer>
                 <v-btn @click.stop="login()" color="primary">Entrar</v-btn>
               </v-card-actions>
@@ -45,17 +55,26 @@ export default {
   data() {
     return {
       username: "",
-      password: ""
+      password: "",
+      showError: false
     };
   },
   methods: {
     login: function() {
+      const username = this.username;
+      const password = this.password;
+      if (username !== "teste" || password !== "123") {
+        this.showError = true;
+        return;
+      }
+      this.showError = false;
       this.$store
         .dispatch("tryToLogin", {
-          username: this.username,
-          password: this.password
+          username: username,
+          password: password
         })
         .catch(() => null);
+      this.$router.push({ name: "Championships" });
     }
   }
 };

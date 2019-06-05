@@ -1,5 +1,17 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
   <v-app>
+    <v-dialog v-model="logoutDialog" persistent max-width="290">
+      <v-card>
+        <v-card-title class="headline">Sair</v-card-title>
+        <v-card-text>Deseja realmente sair da aplicação.</v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="info" dark @click="logout()">Sim</v-btn>
+          <v-spacer></v-spacer>
+          <v-btn color="error" dark @click="logoutDialog = false">não</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
     <v-content>
       <v-toolbar color="primary" dark dense>
         <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
@@ -59,20 +71,26 @@ export default {
   data() {
     return {
       drawer: true,
+      logoutDialog: false,
       mini: true,
       valueDeterminate: 75,
       menuItems: [
         { title: "Campeonatos", icon: "fa-trophy", route: "Championships" },
         { title: "Jogos", icon: "fa-futbol", route: "Games" },
         { title: "Loja", icon: "fa-shopping-basket", route: "Store" },
-        { title: "Configuração", icon: "fa-cog", route: "Config" },
-        { title: "Sair", icon: "fa-sign-out-alt", route: "Logou" }
+        { title: "Sair", icon: "fa-sign-out-alt", route: "Logout" }
       ]
     };
   },
   methods: {
+    logout() {
+      this.$store.dispatch("logout").catch(() => null);
+      this.$router.push({ name: "Login" });
+      this.logoutDialog = false;
+    },
     goRoute(route) {
-      if (route === "logout") {
+      if (route === "Logout") {
+        this.logoutDialog = true;
         return;
       }
       this.$router.push({ name: route });

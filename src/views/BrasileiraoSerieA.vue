@@ -44,23 +44,23 @@
           </v-card>
         </v-tab-item>
         <v-tab-item>
-          <v-flex xs12 sm6>
+          <v-flex xs12 sm6 v-for="(item, index) in oldGames" :key="index">
             <v-card>
               <v-container text-xs-center>
                 <v-layout row wrap align-center>
                   <v-flex xs4>
-                    <img height="50px" src="../assets/gremio.svg" />
+                    <img height="50px" :src="item.time1.img" />
                     <p class="text-uppercase">
-                      Gre
+                      {{ item.time1.name }}
                     </p>
                   </v-flex>
                   <v-flex xs4 class="text-uppercase title">
-                    1 X 0
+                    {{ item.time1.gols }} X {{ item.time2.gols }}
                   </v-flex>
                   <v-flex xs4>
-                    <img height="50px" src="../assets/atletico-mg.svg" />
+                    <img height="50px" :src="item.time2.img" />
                     <p class="text-uppercase">
-                      Cam
+                      {{ item.time2.name }}
                     </p>
                   </v-flex>
                 </v-layout>
@@ -119,6 +119,14 @@ export default {
         }
       ],
       tableItems: [
+        {
+          name: "Grêmio",
+          points: 21,
+          games: 7,
+          victories: 7,
+          draws: 0,
+          defeats: 0
+        },
         {
           name: "Palmeiras",
           points: 13,
@@ -246,14 +254,76 @@ export default {
           victories: 1,
           draws: 3,
           defeats: 2
+        }
+      ],
+      oldGames: [
+        {
+          data: "Quarta, 22/05",
+          time1: {
+            img: "https://logodetimes.com/times/gremio/logo-gremio-256.png",
+            name: "Gre",
+            gols: 4
+          },
+          time2: {
+            img:
+              "https://logodetimes.com/times/juventude/logo-juventude-256.png",
+            name: "Juve",
+            gols: 0
+          }
         },
         {
-          name: "Grêmio",
-          points: 5,
-          games: 7,
-          victories: 1,
-          draws: 2,
-          defeats: 4
+          data: "Terça, 19/05",
+          time1: {
+            img: "https://logodetimes.com/times/gremio/logo-gremio-256.png",
+            name: "Gre",
+            gols: 2
+          },
+          time2: {
+            img: "https://logodetimes.com/times/ceara/logo-ceara-256.png",
+            name: "Cea",
+            gols: 1
+          }
+        },
+        {
+          data: "Terça, 11/05",
+          time1: {
+            img: "https://logodetimes.com/times/gremio/logo-gremio-256.png",
+            name: "Gre",
+            gols: 3
+          },
+          time2: {
+            img:
+              "https://logodetimes.com/times/corinthians/logo-corinthians-256.png",
+            name: "Cor",
+            gols: 0
+          }
+        },
+        {
+          data: "Terça, 05/05",
+          time1: {
+            img: "https://logodetimes.com/times/gremio/logo-gremio-256.png",
+            name: "Gre",
+            gols: 5
+          },
+          time2: {
+            img:
+              "https://logodetimes.com/times/fluminense/logo-fluminense-256.png",
+            name: "Flu",
+            gols: 4
+          }
+        },
+        {
+          data: "Terça, 01/05",
+          time1: {
+            img: "https://logodetimes.com/times/gremio/logo-gremio-256.png",
+            name: "Gre",
+            gols: 5
+          },
+          time2: {
+            img: "https://logodetimes.com/times/avai/logo-avai-5.png",
+            name: "Ava",
+            gols: 1
+          }
         }
       ],
       text:
